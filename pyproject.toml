@@ -1,0 +1,19 @@
+[project]
+name = "computer-vision-poc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "azure-ai-ml==1.31.0",
+    "azure-ai-vision-imageanalysis>=1.0.0b1",
+    "azure-identity>=1.25.1",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.1",
+    "openai>=2.15.0",
+    "opencv-python>=4.11.0.86",
+    "pillow>=12.1.0",
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.5",
+]

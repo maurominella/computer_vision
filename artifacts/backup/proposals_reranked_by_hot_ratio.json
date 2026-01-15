@@ -1,0 +1,106 @@
+{
+  "context": {
+    "text": "a pink vest on a mannequin",
+    "confidence": 0.8091576099395752
+  },
+  "proposals": [
+    {
+      "source": "dense_captions",
+      "text": "a close-up of a fabric",
+      "confidence": 0.7428297996520996,
+      "bbox": {
+        "x": 1233,
+        "y": 423,
+        "w": 494,
+        "h": 210
+      },
+      "hot_ratio": 0.005590900327742433
+    },
+    {
+      "source": "dense_captions",
+      "text": "a pink vest with a black background",
+      "confidence": 0.7073095440864563,
+      "bbox": {
+        "x": 465,
+        "y": 297,
+        "w": 2054,
+        "h": 3420
+      },
+      "hot_ratio": 0.0008545584994618972
+    },
+    {
+      "source": "dense_captions",
+      "text": "a pink vest on a mannequin",
+      "confidence": 0.8091576099395752,
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 3000,
+        "h": 4000
+      },
+      "hot_ratio": 0.00050325
+    },
+    {
+      "source": "dense_captions",
+      "text": "a close up of a fabric",
+      "confidence": 0.757905900478363,
+      "bbox": {
+        "x": 1090,
+        "y": 652,
+        "w": 798,
+        "h": 1245
+      },
+      "hot_ratio": 4.529395778603134e-05
+    },
+    {
+      "source": "dense_captions",
+      "text": "a close up of a pink robe",
+      "confidence": 0.7583510875701904,
+      "bbox": {
+        "x": 962,
+        "y": 966,
+        "w": 1105,
+        "h": 1488
+      },
+      "hot_ratio": 2.1894613924974457e-05
+    },
+    {
+      "source": "dense_captions",
+      "text": "a close up of a pink jacket",
+      "confidence": 0.7573785185813904,
+      "bbox": {
+        "x": 978,
+        "y": 1551,
+        "w": 904,
+        "h": 1403
+      },
+      "hot_ratio": 0.0
+    }
+  ],
+  "global_tags": [
+    {
+      "name": "clothing",
+      "confidence": 0.998607337474823
+    },
+    {
+      "name": "pattern (fashion design)",
+      "confidence": 0.8793271780014038
+    },
+    {
+      "name": "fashion design",
+      "confidence": 0.8778124451637268
+    },
+    {
+      "name": "robe",
+      "confidence": 0.8755605220794678
+    },
+    {
+      "name": "fabric",
+      "confidence": 0.8692994117736816
+    },
+    {
+      "name": "fashion",
+      "confidence": 0.774555504322052
+    }
+  ]
+}

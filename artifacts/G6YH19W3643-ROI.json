@@ -1,0 +1,72 @@
+{
+    "context": {},
+    "proposals": [
+        {
+            "source": "dense_captions",
+            "text": "a pink vest on a mannequin",
+            "confidence": 0.8091576099395752,
+            "bbox": {
+                "x": 0,
+                "y": 0,
+                "w": 3000,
+                "h": 4000
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a pink vest with a black background",
+            "confidence": 0.7012192010879517,
+            "bbox": {
+                "x": 464,
+                "y": 297,
+                "w": 2055,
+                "h": 3420
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close up of a pink jacket",
+            "confidence": 0.7549156546592712,
+            "bbox": {
+                "x": 962,
+                "y": 967,
+                "w": 1104,
+                "h": 1486
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close-up of a fabric",
+            "confidence": 0.7428297996520996,
+            "bbox": {
+                "x": 1233,
+                "y": 423,
+                "w": 494,
+                "h": 210
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close up of a fabric",
+            "confidence": 0.757905900478363,
+            "bbox": {
+                "x": 1090,
+                "y": 652,
+                "w": 798,
+                "h": 1245
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close up of a pink jacket",
+            "confidence": 0.7573785185813904,
+            "bbox": {
+                "x": 978,
+                "y": 1551,
+                "w": 904,
+                "h": 1403
+            }
+        }
+    ],
+    "global_tags": []
+}

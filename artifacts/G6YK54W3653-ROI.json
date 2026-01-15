@@ -1,0 +1,105 @@
+{
+    "context": {},
+    "proposals": [
+        {
+            "source": "dense_captions",
+            "text": "a white dress on a swinger",
+            "confidence": 0.8487759828567505,
+            "bbox": {
+                "x": 0,
+                "y": 0,
+                "w": 3000,
+                "h": 4000
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a white dress with a belt",
+            "confidence": 0.8088422417640686,
+            "bbox": {
+                "x": 314,
+                "y": 269,
+                "w": 2262,
+                "h": 3401
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close up of a white curtain",
+            "confidence": 0.760683000087738,
+            "bbox": {
+                "x": 1585,
+                "y": 1763,
+                "w": 333,
+                "h": 1366
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close-up of a carpet",
+            "confidence": 0.7586162090301514,
+            "bbox": {
+                "x": 1268,
+                "y": 396,
+                "w": 452,
+                "h": 198
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close up of a dress",
+            "confidence": 0.8248379826545715,
+            "bbox": {
+                "x": 905,
+                "y": 1751,
+                "w": 1213,
+                "h": 1319
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "close-up of a white fabric",
+            "confidence": 0.7553492188453674,
+            "bbox": {
+                "x": 1550,
+                "y": 1766,
+                "w": 345,
+                "h": 308
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a white surface with text on it",
+            "confidence": 0.67503422498703,
+            "bbox": {
+                "x": 1161,
+                "y": 376,
+                "w": 671,
+                "h": 347
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a white fabric with a rope",
+            "confidence": 0.6743386387825012,
+            "bbox": {
+                "x": 939,
+                "y": 1718,
+                "w": 1131,
+                "h": 353
+            }
+        },
+        {
+            "source": "dense_captions",
+            "text": "a close up of a white shirt",
+            "confidence": 0.7902299165725708,
+            "bbox": {
+                "x": 1074,
+                "y": 363,
+                "w": 852,
+                "h": 701
+            }
+        }
+    ],
+    "global_tags": []
+}

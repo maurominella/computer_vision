@@ -1,0 +1,11 @@
+python-dotenv
+azure-ai-vision-imageanalysis
+openai
+azure-ai-ml==1.31.0
+azure-identity
+matplotlib
+opencv-python
+numpy
+requests
+Pillow
+jupyter
