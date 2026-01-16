@@ -475,7 +475,7 @@ wheels = [
 ]
 
 [[package]]
-name = "computer-vision-poc"
+name = "computer-vision"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
@@ -494,8 +494,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "azure-ai-ml", specifier = "==1.31.0" },
-    { name = "azure-ai-vision-imageanalysis", specifier = ">=1.0.0b1" },
+    { name = "azure-ai-ml", specifier = ">=1.31.0" },
+    { name = "azure-ai-vision-imageanalysis", specifier = ">=1.0.0" },
     { name = "azure-identity", specifier = ">=1.25.1" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "matplotlib", specifier = ">=3.10.8" },

@@ -28,7 +28,7 @@ to demonstrate the end-to-end pipeline proposed to GUESS.
 ## Environment preparation
 - *CD* into the folder
 - Create the environment: `uv init . --python 3.13`.
-- Add libraries (bad method): `uv add azure-ai-vision-imageanalysis openai azure-ai-ml==1.31.0 azure-identity python-dotenv matplotlib opencv-python numpy requests Pillow jupyter`.
+- Add libraries (bad method): `uv add azure-ai-vision-imageanalysis openai azure-ai-ml azure-identity python-dotenv matplotlib opencv-python numpy requests Pillow jupyter`.
 - Add libraries (better method): `uv add $(cat requirements.txt)`.
 - Syncrhonize to create the file structure: `uv sync`.
 - Activate the environment:

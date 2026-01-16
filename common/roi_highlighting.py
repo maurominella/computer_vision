@@ -13,6 +13,8 @@ from azure.ai.vision.imageanalysis import ImageAnalysisClient # !pip install azu
 from azure.ai.vision.imageanalysis.models import VisualFeatures # enum
 from IPython.display import Image as IPyImage, display
 from PIL import Image as PILImage, ImageDraw, ImageFont
+from .utils import compose_filename
+
 
 # region Helpers
 # ---------- Helpers ----------
@@ -76,20 +78,6 @@ def draw_label(draw, W, H, xy, text, bg_color, fg_color=(255, 255, 255), font=No
 
 def area_ratio(b, W, H):
     return (b["w"] * b["h"]) / float(W * H + 1e-9)
-
-def get_overlay_filename(image_path: str, postfix: str) -> str:
-    """
-    Given an image path like ./images/1. ARTWORK COLLISION/J74Q10KAUG0-G6N3.png,
-    create its payload file name as artifacts/J74Q10KAUG0-ROI.json
-    """
-    # Extract the filename from the path
-    filename = os.path.basename(image_path)
-    # Remove the extension
-    base_name = os.path.splitext(filename)[0]
-    # Split by '-' and take the first part (e.g., J74Q10KAUG0 from J74Q10KAUG0-G6N3)
-    prefix = base_name.split('-')[0]
-    # Create the payload filename
-    return f"artifacts/{prefix}-{postfix}.png"
 #endregion
 
 # ---------- Main function ----------
@@ -163,7 +151,7 @@ def roi_overlay(
     
 
     if save_overlay_boxes:
-        overlay_boxes.save(get_overlay_filename(image_path, "roi_overlay"))
+        overlay_boxes.save(compose_filename(image_path, "02A_roi_overlay"))
     
     if save_overlay_labels:
-        overlay_labels.save(get_overlay_filename(image_path, "roi_overlay_labels"))
+        overlay_labels.save(compose_filename(image_path, "02B_roi_overlay_labels"))

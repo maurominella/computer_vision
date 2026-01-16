@@ -1,6 +1,7 @@
 # Imports
 import os, cv2 # requires opencv-python
 import numpy as np
+from .utils import compose_filename
 
 # region Helper functions
 def robust_normalize(m):
@@ -10,20 +11,6 @@ def robust_normalize(m):
         return np.zeros_like(m, dtype=np.float32)
     m = np.clip((m - lo) / (hi - lo), 0, 1)
     return m
-
-def get_artifact_filename(image_path: str, postfix: str) -> str:
-    """
-    Given an image path like ./images/1. ARTWORK COLLISION/J74Q10KAUG0-G6N3.png,
-    create its payload file name as artifacts/J74Q10KAUG0-ROI.json
-    """
-    # Extract the filename from the path
-    filename = os.path.basename(image_path)
-    # Remove the extension
-    base_name = os.path.splitext(filename)[0]
-    # Split by '-' and take the first part (e.g., J74Q10KAUG0 from J74Q10KAUG0-G6N3)
-    prefix = base_name.split('-')[0]
-    # Create the payload filename
-    return f"artifacts/{prefix}-{postfix}.png"
 #endregion
 
 # ---------- Main function ----------
@@ -34,7 +21,7 @@ def roi_hotspots(
         create_high_freq_map: bool = True,
         save_hotspots_heat: bool = True,
         save_hotspots_overlay: bool = True
-        ):
+        ) -> dict:
     
     # --- 1) Load image ---
     img = cv2.imread(image_path, cv2.IMREAD_COLOR)
@@ -84,8 +71,12 @@ def roi_hotspots(
     heat_color = cv2.applyColorMap((heat*255).astype(np.uint8), cv2.COLORMAP_TURBO)
     overlay = cv2.addWeighted(img, 0.75, heat_color, 0.35, 0)
 
+    hotspots_heat_path = compose_filename(image_path, "03A_hotspots_heat")
     if save_hotspots_heat:
-        cv2.imwrite(get_artifact_filename(image_path, "hotspots_heat"), heat_color,)
+        cv2.imwrite(hotspots_heat_path, heat_color,)
 
+    hotspots_overlay_path = compose_filename(image_path, "03B_hotspots_overlay")
     if save_hotspots_overlay:
-        cv2.imwrite(get_artifact_filename(image_path, "hotspots_overlay"), overlay)
+        cv2.imwrite(hotspots_overlay_path, overlay)
+
+    return {"hotspots_heat_path": hotspots_heat_path, "hotspots_overlay_path": hotspots_overlay_path}

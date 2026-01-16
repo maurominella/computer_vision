@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "bboxes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label","x_min","y_min","x_max","y_max","confidence"],
+        "properties": {
+          "label": { "type": "string", "enum": ["ART_COLLISION"] },
+          "x_min": { "type": "number", "minimum": 0, "maximum": 1 },
+          "y_min": { "type": "number", "minimum": 0, "maximum": 1 },
+          "x_max": { "type": "number", "minimum": 0, "maximum": 1 },
+          "y_max": { "type": "number", "minimum": 0, "maximum": 1 },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "rationale_summary": { "type": "string" }
+  },
+  "required": ["bboxes","rationale_summary"],
+  "additionalProperties": false
+}

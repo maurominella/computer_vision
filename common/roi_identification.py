@@ -1,6 +1,6 @@
-
 # ---------- Imports ----------
 import os, json, requests
+from .utils import compose_filename
 
 
 #region helper functions
@@ -114,8 +114,8 @@ def roi_identification(
     if limit_proposals > 0:
         payload["proposals"] = selected[:limit_proposals]
 
-    if save_payload:
-        with open(get_payload_filename(image_path), "w", encoding="utf-8") as f:
+    if save_payload:        
+        with open(compose_filename(image_path, "01_ROI", "json"), "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=4)
     
     return payload
