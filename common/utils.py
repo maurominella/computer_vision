@@ -2,31 +2,29 @@ import os, shutil
 
 def compose_filename(image_path: str, postfix: str, extension: str="png") -> str:
     """
-    Given an image path like ./images/1. ARTWORK COLLISION/J74Q10KAUG0-G6N3.png,
-    create its payload file name as artifacts/J74Q10KAUG0-ROI.json
+    Given an image path like ./images/1. ARTWORK COLLISION/G6YK54W3653-MCDM.png,
+    create its payload file name as artifacts/G6YK54W3653-MCDM_ROI.png
     """
     # Extract the filename from the path
     filename = os.path.basename(image_path)
     # Remove the extension
     base_name = os.path.splitext(filename)[0]
-    # Split by '-' and take the first part (e.g., J74Q10KAUG0 from J74Q10KAUG0-G6N3)
-    prefix = base_name.split('-')[0]
-    # Create the payload filename
-    return f"artifacts/{prefix}-{postfix}.{extension}"
+    # Create the payload filename with the full base name + postfix
+    return f"artifacts/{base_name}_{postfix}.{extension}"
 
 
-def copy_file(source_path: str, target_path: str) -> None:
+def copy_file(source_file: str, target_file: str) -> None:
     """
-    Copies a file from source_path to target_path.
+    Copies a file from source_file to target_file.
     Creates the target directory if it doesn't exist.
     
     Args:
-        source_path: Path to the source file
-        target_path: Path to the target file
+        source_file: Path to the source file
+        target_file: Path to the target file
     """
     # Create target directory if it doesn't exist
-    target_dir = os.path.dirname(target_path)
+    target_dir = os.path.dirname(target_file)
     if target_dir and not os.path.exists(target_dir):
         os.makedirs(target_dir)
     
-    shutil.copy2(source_path, target_path)
+    shutil.copy2(source_file, target_file)
