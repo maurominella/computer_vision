@@ -18,12 +18,16 @@ def main():
     from common.roi_identification import roi_identification
     from common.roi_highlighting import roi_overlay
     from common.roi_hotspots import roi_hotspots
-    from common.image_genai import hotspots_analysis
+    from common.image_genai import genai_analysis
 
     payloads = []
 
+    images_to_process = ["M6GZB4WF8V1-DALW-BACK.png"] # [] # leave empty to process all images in the folder
+    if not images_to_process:
+        images_to_process = os.listdir(images_path)
+
     # iterate over images in the images folder
-    for image_file_name in os.listdir(images_path):
+    for image_file_name in images_to_process:
         if os.path.isfile(os.path.join(images_path, image_file_name)):
             print(f"Duplicating source image {image_file_name}...")
             image_source_path=os.path.join(images_path, image_file_name)
@@ -60,13 +64,14 @@ def main():
             )
 
             print(f"Analyzing with GENAI hotspots for image {image_file_name}...")
-            hostspotted_image = hotspots_analysis(
+            hostspotted_image = genai_analysis(
                 deployment_name=os.getenv("AZURE_OPENAI_CHAT_MULTIMODEL_DEPLOYMENT_NAME"),
                 azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"), # Azure OpenAI resource
                 api_key=os.getenv("AZURE_OPENAI_API_KEY"),
                 api_version=os.getenv("AZURE_OPENAI_API_VERSION"),# at least 2024-02-15-preview,
                 original_image_path=image_source_path, # "G6YH19W3643-G6O3.png", 
                 hotspots_image_path=hotspots["hotspots_heat_path"], # "G6YH19W3643-hotspots_heat.png"
+                save_payload=True,
             )
 
     print(f"{len(payloads)} images processed.") 

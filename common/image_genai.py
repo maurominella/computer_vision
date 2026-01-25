@@ -13,13 +13,14 @@ def to_data_uri(path):
     return f"data:image/png;base64,{b64}"
 
 
-def hotspots_analysis(
+def genai_analysis(
         azure_endpoint: str,
         api_key: str,
         api_version: str,
         deployment_name: str,
         original_image_path: str, 
         hotspots_image_path: str,
+        save_payload: bool = True,
         ):
     """
     Analyze art collision in an image using Azure OpenAI multimodal capabilities
@@ -86,8 +87,12 @@ def hotspots_analysis(
     payload = json.loads(response.choices[0].message.content)
     
     print(json.dumps(payload, indent=2))
+    
+    if save_payload:        
+        with open(compose_filename(original_image_path, "04_genai_bboxes", "json"), "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=4)
 
-    out = draw_bboxes(original_image_path, payload, compose_filename(original_image_path, "04_llm_bboxes"))
+    out = draw_bboxes(original_image_path, payload, compose_filename(original_image_path, "04_genai_bboxes"))
     return out
 
 
@@ -99,7 +104,7 @@ def main():
     else:
         print("Environment variables have been loaded ;-)")
 
-    hostspotted_image = hotspots_analysis(
+    hostspotted_image = genai_analysis(
         deployment_name=os.getenv("AZURE_OPENAI_CHAT_MULTIMODEL_DEPLOYMENT_NAME"),
         azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"), # Azure OpenAI resource
         api_key=os.getenv("AZURE_OPENAI_API_KEY"),
