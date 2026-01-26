@@ -22,7 +22,7 @@ def main():
 
     payloads = []
 
-    images_to_process = ["M6GZB4WF8V1-DALW-BACK.png"] # [] # leave empty to process all images in the folder
+    images_to_process = [] # [] # leave empty to process all images in the folder
     if not images_to_process:
         images_to_process = os.listdir(images_path)
 
