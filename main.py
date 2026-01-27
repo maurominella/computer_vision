@@ -22,7 +22,7 @@ def main():
 
     payloads = []
 
-    images_to_process = [] # [] # leave empty to process all images in the folder
+    images_to_process = [] # ["G6YH19W3643-G6O3.png", "G6YK36W3244-G7R6.png", "G6YK54W3653-MCDM.png", "J74Q10KAUG0-G6N3.png", "J74Q10KAUG0-G8CR.png", "J74Q10KAUG0-G011.png"] # [] # leave empty to process all images in the folder
     if not images_to_process:
         images_to_process = os.listdir(images_path)
 
@@ -71,6 +71,7 @@ def main():
                 api_version=os.getenv("AZURE_OPENAI_API_VERSION"),# at least 2024-02-15-preview,
                 original_image_path=image_source_path, # "G6YH19W3643-G6O3.png", 
                 hotspots_image_path=hotspots["hotspots_heat_path"], # "G6YH19W3643-hotspots_heat.png"
+                roi_json_str=str(roi_payload).replace("'", '"'),
                 save_payload=True,
             )
 

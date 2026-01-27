@@ -20,6 +20,7 @@ def genai_analysis(
         deployment_name: str,
         original_image_path: str, 
         hotspots_image_path: str,
+        roi_json_str: str,
         save_payload: bool = True,
         ):
     """
@@ -43,7 +44,12 @@ def genai_analysis(
         {"role":"user","content": [
             {"type":"text","text":message_text},
             {"type":"image_url","image_url":{"url": original_uri}},
-            {"type":"image_url","image_url":{"url": hotspots_uri}}
+            {"type":"image_url","image_url":{"url": hotspots_uri}},
+            {
+                "type": "text",
+                "text": f"ROI_JSON:\n{roi_json_str}"
+            }
+
         ]}
     ]
 
@@ -61,28 +67,6 @@ def genai_analysis(
         response_format={ "type": "json_schema", "json_schema": { "name": "art_collision_schema", "schema": schema } },
         messages=messages
     )
-
-    # response = client.responses.create(
-    #     model=deployment_name,
-    #     temperature=0.2,
-    #     response_format={
-    #         "type":"json_schema",
-    #         "json_schema":{
-    #             "name":"art_collision_schema",
-    #             "schema": schema 
-    #         }
-    #     },
-    #     input=[
-    #         {"role":"system","content":[{"type":"text","text":system_text}]},
-    #         {"role":"user","content":[
-    #             {"type":"input_text","text":message_text},
-    #             {"type":"input_image","image_url":{"url": original_uri}},
-    #             {"type":"input_image","image_url":{"url": hotspots_uri}}
-    #         ]}
-    #     ]
-    # )
-
-    # payload = json.loads(response.output_text)
 
     payload = json.loads(response.choices[0].message.content)
     
